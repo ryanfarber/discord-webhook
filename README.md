@@ -6,8 +6,8 @@ a tool to send data to discord webhooks
 
 1) data you want to send (string)
 2) the url of the webhook (string)
-3) <optional> name of the webhook (string)
-4) <optional> an object containing optional parameters:
+3) (optional) name of the webhook (string)
+4) (optional) an object containing optional parameters:
 
 - `avatar: "avatar url"`
 
