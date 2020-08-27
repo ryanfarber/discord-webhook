@@ -2,7 +2,16 @@
 
 a tool to send data to discord webhooks
 
-`discordHook.send("data", "webhook url", "webhookname (optional)", {avatar: "avatar url", embeds: ["embed urls"]})`
+`send()` takes multiple arguments:
+
+1) data you want to send (string)
+2) the url of the webhook (string)
+3) <optional> name of the webhook (string)
+4) <optional> an object containing optional parameters:
+
+- `avatar: "avatar url"`
+
+- `embeds: ["embed urls"]`
 
 ```javascript
 var discordHook = require("rf-discord-webhook-sender");
