@@ -6,7 +6,7 @@ async function send(data, url, name, settings = {}) {
 	var webhookId;
 	var webhookToken;
 	var config = {
-		username: name || "webhook",
+		username: name,
 		avatarURL: settings.avatar || "",
 		embeds: settings.embeds || []
 	};

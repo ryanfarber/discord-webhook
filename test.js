@@ -1,6 +1,6 @@
 var discordHook = require("./index.js");
 
-let url = "";
+let url = "webhook url";
 let message = "hello";
 
-discordHook.send(message, url, "myWebhook").then(console.log);
+discordHook.send(message, url, "myWebhook").then(console.log)
