@@ -1,0 +1,22 @@
+{
+  "name": "rf-discord-webhook-sender",
+  "version": "1.0.0",
+  "description": "a tool for sending data to discord webhooks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryanfarber/rf-discord-webhook-sender.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ryanfarber/rf-discord-webhook-sender/issues"
+  },
+  "homepage": "https://github.com/ryanfarber/rf-discord-webhook-sender#readme",
+  "dependencies": {
+    "discord.js": "^12.3.1"
+  }
+}
