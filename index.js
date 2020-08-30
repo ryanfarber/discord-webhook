@@ -2,7 +2,9 @@
 
 const Discord = require("discord.js");
 
-async function send(data, url, name, settings = {}) {
+
+
+function DiscordHook(url, name, settings = {}) {
 	var webhookId;
 	var webhookToken;
 	var config = {
@@ -11,29 +13,30 @@ async function send(data, url, name, settings = {}) {
 		embeds: settings.embeds || []
 	};
 
-	try {
-		if (data == undefined || data == "") {
-			throw new Error("cannot send empty message")
-		} else if (url == undefined || typeof url !== 'string' || url == '') {
-			throw new Error('check hook URL');
-		} else if (!url.startsWith('https://discordapp.com/api/webhooks/')) {
-			throw new Error('check if this is a discord webhook URL');
-		} else {
-			if (url.match(/(?!webhooks\/)\d.+?(?=\/)/g)) {
-				webhookId = url.match(/(?!webhooks\/)\d.+?(?=\/)/g)[0];
+	this.send = (data) => {
+		try {
+			if (data == undefined || data == "") {
+				throw new Error("cannot send empty message")
+			} else if (url == undefined || typeof url !== 'string' || url == '') {
+				throw new Error('check hook URL');
+			} else if (!url.startsWith('https://discordapp.com/api/webhooks/')) {
+				throw new Error('check if this is a discord webhook URL');
+			} else {
+				if (url.match(/(?!webhooks\/)\d.+?(?=\/)/g)) {
+					webhookId = url.match(/(?!webhooks\/)\d.+?(?=\/)/g)[0];
+				};
+				if (url.match(/(?<=\d\/).+?$/g)) {
+					webhookToken = url.match(/(?<=\d\/).+?$/g)[0];
+				}; 
 			};
-			if (url.match(/(?<=\d\/).+?$/g)) {
-				webhookToken = url.match(/(?<=\d\/).+?$/g)[0];
-			}; 
+
+			const hook = new Discord.WebhookClient(webhookId, webhookToken);
+			return hook.send(data, config)
+		} catch(e) {
+			console.error(e)
 		};
 
-		const hook = new Discord.WebhookClient(webhookId, webhookToken);
-		return hook.send(data, config)
-	} catch(e) {
-		console.error(e)
-	};
+	}
 };
 
-module.exports = {
-	send
-}
+module.exports = DiscordHook
