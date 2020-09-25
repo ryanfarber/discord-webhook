@@ -18,7 +18,7 @@ var DiscordHook = require("rf-discord-webhook-sender");
 
 let url = "https://discordapp.com/api/webhooks/...";
 
-var hook = new DiscordHook(url, "web hook name")
+var hook = new DiscordHook("web hook name", url)
 
 hook.send("hello")
 
