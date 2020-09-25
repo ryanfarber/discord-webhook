@@ -4,7 +4,7 @@ const Discord = require("discord.js");
 
 
 
-function DiscordHook(url, name, settings = {}) {
+function DiscordHook(name, url, settings = {}) {
 	var webhookId;
 	var webhookToken;
 	var config = {

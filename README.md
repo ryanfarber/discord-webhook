@@ -14,11 +14,12 @@ a tool to send data to discord webhooks
 - `embeds: ["embed urls"]`
 
 ```javascript
-var discordHook = require("rf-discord-webhook-sender");
+var DiscordHook = require("rf-discord-webhook-sender");
 
-let url = "";
-let message = "hello";
+let url = "https://discordapp.com/api/webhooks/...";
 
-discordHook.send(message, url, "myWebhook").then(console.log);
+var hook = new DiscordHook(url, "web hook name")
+
+hook.send("hello")
 
 ```
