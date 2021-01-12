@@ -1,4 +1,4 @@
-// index.js
+// v1.js
 
 const Discord = require("discord.js");
 const Logger = require("rf-logger");
@@ -6,18 +6,16 @@ const logger = new Logger("rf-discord-webhook-sender")
 
 
 
-function DiscordHook(settings = {}) {
-	let webhookId;
-	let webhookToken;
-	let url = settings.url
-	let debug = settings.debug || false
-	let config = {
-		username: settings.name,
+function DiscordHook(name, url, settings = {}, debug) {
+	var webhookId;
+	var webhookToken;
+	var config = {
+		username: name,
 		avatarURL: settings.avatar || "",
 		embeds: settings.embeds || []
 	};
 
-	this.send = (data, override = {}) => {
+	this.send = (data, customName) => {
 
 		try {
 			if (data == undefined || data == "") {
@@ -38,15 +36,14 @@ function DiscordHook(settings = {}) {
 				}; 
 			};
 
-			const client = new Discord.WebhookClient(webhookId, webhookToken);
-			if (override.name) config.username = override.name;
-			if (override.avatar) config.avatarURL = override.avatar
-			return client.send(data, config)
+			const hook = new Discord.WebhookClient(webhookId, webhookToken);
+			if (customName) config.username = customName
+			return hook.send(data, config)
 		} catch(e) {
-			throw e
 			console.error(e)
 		};
-	};
+
+	}
 };
 
 module.exports = DiscordHook
