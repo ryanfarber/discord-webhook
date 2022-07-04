@@ -17,10 +17,9 @@
   },
   "homepage": "https://github.com/ryanfarber/rf-discord-webhook-sender#readme",
   "dependencies": {
-    "discord.js": "^12.3.1",
-    "rf-logger": "^3.0.2"
+    "@ryanforever/logger": "^4.0.7",
+    "discord.js": "^13.8.1"
   },
-  "devDependencies": {},
   "keywords": [
     "discord",
     "webhook"
