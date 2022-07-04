@@ -33,6 +33,7 @@ function DiscordHook(settings = {}) {
 
 	// EDIT //
 	this.edit = async function(message, newMessage, config = {}) {
+		logger.debug("editing message...")
 		if (!message) throw new ERROR("MISSING_MESSAGE")
 		if (!newMessage) throw new ERROR("MISSING_EDIT")
 		return await client.editMessage(message, newMessage)

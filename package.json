@@ -1,7 +1,7 @@
 {
   "name": "@ryanforever/discord-webhook",
-  "version": "2.0.0",
-  "description": "a tool for sending data to discord webhooks",
+  "version": "2.1.0",
+  "description": "send messages via discord webhooks",
   "main": "index.js",
   "scripts": {
     "test": "node test"
